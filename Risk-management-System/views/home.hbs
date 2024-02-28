@@ -1,0 +1,53 @@
+
+{{#if removedUser}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  Company has been removed.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+
+<div class="row">
+  <div class="col-6">
+    <h2 style="font-weight: bold; color: #333;">Risk Owner</h2>
+  </div>
+  <div class="col-6 d-flex justify-content-end">
+    <a href="/adduser" type="button" class="btn btn-primary align-self-center" style="text-decoration: none;">
+      <i class="fas fa-plus"></i>Add Risk Owner
+    </a>
+  </div>
+</div>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+       <th scope="col">Code</th>
+      <th scope="col">Title</th>
+      <th scope="col">Telephone No</th>
+        <th scope="col" class="text--end">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+{{#each rows}}
+
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.first_name}}</td>                        {{!-- ALT SHIFT DOWN-ARROW --}}
+      <td>{{this.last_name}}</td>
+      <td>{{this.email}}</td>
+       <td>{{this.phone}}</td>
+        <td class="text--end">
+ <a href="/viewuser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-eye-fill text-primary"></i> View</a>
+<a href="/edituser/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-pencil-fill text-success"></i> Edit</a>
+<a href="/{{this.id}}" type="button" class="btn btn-light btn-small"><i class="bi bi-person-x-fill text-danger"></i> Delete</a>
+
+
+
+        </td>
+    </tr>
+    {{/each}}
+   
+  </tbody>
+</table>
